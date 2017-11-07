@@ -1,6 +1,6 @@
 ﻿namespace WhatsAppMessenger
 {
-    partial class txtPhoneNumber
+    partial class frmRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,8 @@
             this.grbRequestCode = new System.Windows.Forms.GroupBox();
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.PhoneNumber = new System.Windows.Forms.Label();
             this.grbConfirmCode = new System.Windows.Forms.GroupBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.txtSmsCode = new System.Windows.Forms.TextBox();
@@ -47,17 +47,18 @@
             this.btnRequest.Location = new System.Drawing.Point(241, 74);
             this.btnRequest.Name = "btnRequest";
             this.btnRequest.Size = new System.Drawing.Size(75, 23);
-            this.btnRequest.TabIndex = 0;
+            this.btnRequest.TabIndex = 2;
             this.btnRequest.Text = "Request";
             this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click_1);
             // 
             // grbRequestCode
             // 
             this.grbRequestCode.Controls.Add(this.txtFullName);
             this.grbRequestCode.Controls.Add(this.btnRequest);
             this.grbRequestCode.Controls.Add(this.label2);
-            this.grbRequestCode.Controls.Add(this.textBox1);
-            this.grbRequestCode.Controls.Add(this.label1);
+            this.grbRequestCode.Controls.Add(this.txtPhoneNumber);
+            this.grbRequestCode.Controls.Add(this.PhoneNumber);
             this.grbRequestCode.Location = new System.Drawing.Point(12, 12);
             this.grbRequestCode.Name = "grbRequestCode";
             this.grbRequestCode.Size = new System.Drawing.Size(333, 100);
@@ -81,21 +82,21 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Full name:";
             // 
-            // textBox1
+            // txtPhoneNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtPhoneNumber.Location = new System.Drawing.Point(91, 22);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(225, 20);
+            this.txtPhoneNumber.TabIndex = 0;
             // 
-            // label1
+            // PhoneNumber
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Phone number:";
+            this.PhoneNumber.AutoSize = true;
+            this.PhoneNumber.Location = new System.Drawing.Point(6, 25);
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.Size = new System.Drawing.Size(79, 13);
+            this.PhoneNumber.TabIndex = 0;
+            this.PhoneNumber.Text = "Phone number:";
             // 
             // grbConfirmCode
             // 
@@ -114,7 +115,7 @@
             this.btnConfirm.Location = new System.Drawing.Point(241, 48);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirm.TabIndex = 0;
+            this.btnConfirm.TabIndex = 1;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             // 
@@ -124,7 +125,7 @@
             this.txtSmsCode.MaxLength = 6;
             this.txtSmsCode.Name = "txtSmsCode";
             this.txtSmsCode.Size = new System.Drawing.Size(225, 20);
-            this.txtSmsCode.TabIndex = 1;
+            this.txtSmsCode.TabIndex = 0;
             // 
             // label4
             // 
@@ -135,7 +136,7 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Sms code:";
             // 
-            // txtPhoneNumber
+            // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,7 +145,7 @@
             this.Controls.Add(this.grbRequestCode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "txtPhoneNumber";
+            this.Name = "frmRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registration";
             this.grbRequestCode.ResumeLayout(false);
@@ -161,8 +162,8 @@
         private System.Windows.Forms.GroupBox grbRequestCode;
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.Label PhoneNumber;
         private System.Windows.Forms.GroupBox grbConfirmCode;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.TextBox txtSmsCode;
