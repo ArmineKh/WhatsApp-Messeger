@@ -13,6 +13,7 @@ namespace WhatsAppMessenger
     public partial class frmRegister : Form
     {
         string password;
+        private string sms;
 
         public frmRegister()
         {

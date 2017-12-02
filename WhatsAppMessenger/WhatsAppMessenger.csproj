@@ -54,6 +54,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Globals.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </EmbeddedResource>
