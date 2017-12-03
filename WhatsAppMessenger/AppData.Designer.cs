@@ -10,6 +10,8 @@
 
 #pragma warning disable 1591
 
+using System;
+
 namespace WhatsAppMessenger {
     
     
@@ -886,6 +888,11 @@ namespace WhatsAppMessenger {
                 }
                 xs.Add(dsSchema);
                 return type;
+            }
+
+            internal void WriteXml(string v, string startupPath)
+            {
+                throw new NotImplementedException();
             }
         }
         

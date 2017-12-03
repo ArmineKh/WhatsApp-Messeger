@@ -131,12 +131,32 @@ namespace WhatsAppMessenger
 
         private void btnAddEdit_Click(object sender, EventArgs e)
         {
-
+            using (frmAddEditUser frm = new frmAddEditUser(listUsers.SelectedItem))
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                    LoadData();
+                listUsers.SelectedIndex = -1;
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-
+            if(listUsers.Items.Count > 0)
+            {
+                if(MessageBox.Show("Are you sure want to remove thus phone number ?", "Message", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    var obj = listUsers.SelectedItem;
+                    if (obj != null)
+                    {
+                        AppData.UsersRow row = Globals.DB.Users.FindByUserId(obj.GetType().GetProperty("PhoneNumber").GetValue(obj, null).ToString());
+                        Globals.DB.Users.RemoveUsersRow(row);
+                        Globals.DB.Users.AcceptChanges();
+                        Globals.DB.Users.WriteXml(string.Format("{0}\\users.dat", Application.StartupPath));
+                        LoadData();
+                        listUsers.SelectedIndex = -1;
+                    }
+                }
+            }
         }
     }
 }
