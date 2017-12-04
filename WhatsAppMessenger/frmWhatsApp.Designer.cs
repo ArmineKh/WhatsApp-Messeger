@@ -132,6 +132,7 @@
             this.listUsers.Name = "listUsers";
             this.listUsers.Size = new System.Drawing.Size(253, 368);
             this.listUsers.TabIndex = 2;
+            this.listUsers.DoubleClick += new System.EventHandler(this.listUsers_DoubleClick);
             // 
             // btnRemove
             // 

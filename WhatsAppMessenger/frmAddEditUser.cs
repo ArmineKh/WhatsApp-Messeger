@@ -146,7 +146,6 @@ namespace WhatsAppMessenger
             {
                 txtPhoneNumber.Text = obj.GetType().GetProperty("PhoneNumber").GetValue(obj, null).ToString();
                 txtFullName.Text = obj.GetType().GetProperty("FullName").GetValue(obj, null).ToString();
-
             }
         }
     }
