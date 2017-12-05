@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWhatsApp));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.messengerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,9 +47,11 @@
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.linkNewAccount = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -102,7 +105,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnSignIn);
             this.panel1.Controls.Add(this.chkRemember);
             this.panel1.Controls.Add(this.txtPassword);
@@ -110,6 +112,7 @@
             this.panel1.Controls.Add(this.txtPhoneNumber);
             this.panel1.Controls.Add(this.linkNewAccount);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(260, 431);
@@ -117,6 +120,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.listUsers);
             this.panel2.Controls.Add(this.btnRemove);
             this.panel2.Controls.Add(this.btnAddEdit);
@@ -218,6 +222,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Phone number:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WhatsAppMessenger.Properties.Resources.if_whatsapp_287520;
+            this.pictureBox1.Location = new System.Drawing.Point(80, 75);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(97, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmWhatsApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,6 +240,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmWhatsApp";
@@ -237,6 +252,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,6 +278,7 @@
         private System.Windows.Forms.ListBox listUsers;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAddEdit;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

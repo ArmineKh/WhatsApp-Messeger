@@ -20,7 +20,9 @@ namespace WhatsAppMessenger
         WhatsApp wa;
         string phoneNumber;
         string fullName;
-        System.Timers.Timer timer;
+        //System.Timers.Timer timer;
+        Thread thread;
+
 
         public frmChat(WhatsApp wa, object obj)
         {
@@ -110,11 +112,11 @@ namespace WhatsAppMessenger
 
                     fileName = null;
                     lblPath.Text = "Image ???";
-                    timer.Start();
+                   // timer.Start();
                 }
                 else
                 {
-                    timer.Stop();
+                   // timer.Stop();
                     if (string.IsNullOrEmpty(txtMessage.Text))
                         return;
                     wa.SendMessage(phoneNumber, txtMessage.Text);
@@ -128,7 +130,7 @@ namespace WhatsAppMessenger
                         webBrowser.DocumentText = string.Format("{0}: {1}", Properties.Settings.Default.FullName, txtMessage.Text);
                     txtMessage.Clear();
                     txtMessage.Focus();
-                    timer.Start();
+                   // timer.Start();
                 }
             }
         }
@@ -142,7 +144,7 @@ namespace WhatsAppMessenger
                     fileName = ofd.FileName;
                     index = ofd.FilterIndex;
                     lblPath.Text = string.Format("Path: {0}", ofd.FileName);
-                    timer.Stop();
+                   // timer.Stop();
                     wa.Disconnect();
                     Thread.Sleep(3000);
                     wa.Connect();
@@ -153,10 +155,33 @@ namespace WhatsAppMessenger
 
         private void frmChat_Load(object sender, EventArgs e)
         {
-            timer = new System.Timers.Timer();
-            timer.Interval = 6000;
-            timer.Elapsed += Timer_Elapsed;
+            //timer = new System.Timers.Timer();
+            //timer.Interval = 6000;
+            //timer.Elapsed += Timer_Elapsed;
+            thread = new Thread(t =>
+            {
+                while(wa != null)
+                {
+                    if (wa.ConnectionStatus == ApiBase.CONNECTION_STATUS.LOGGEDIN)
+                    {
+                        if (string.IsNullOrEmpty(fileName))
+                        {
+                            wa.pollMessage();
+                            Thread.Sleep(3000);
+                            continue;
+                        }
+                        else
+                        {
+                            Thread.Sleep(3000);
+                            continue;
+                        }
+                    }
+                }
+            })
+            { IsBackground = true };
+            thread.Start();
         }
+        
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -169,7 +194,9 @@ namespace WhatsAppMessenger
 
         private void frmChat_FormClosing(object sender, FormClosingEventArgs e)
         {
-            timer.Stop();
+            // timer.Stop();
+            if (thread.IsAlive)
+                thread.Abort();
         }
     }
 }

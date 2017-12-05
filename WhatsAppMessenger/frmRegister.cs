@@ -35,7 +35,8 @@ namespace WhatsAppMessenger
                 txtFullName.Focus();
                 return;
             }
-            if (WhatsAppApi.Register.WhatsRegisterV2.RequestCode(txtPhoneNumber.Text, out password, "sms"))
+            
+            if (WhatsAppApi.Register.WhatsRegisterV2.RequestCode(txtPhoneNumber.Text, out password,out sms ))
             {
                 if (!string.IsNullOrEmpty(password))
                     Save();
@@ -77,7 +78,7 @@ namespace WhatsAppMessenger
                 txtSmsCode.Focus();
                 return;
             }
-            password = WhatsAppApi.Register.WhatsRegisterV2.RegisterCode(txtPhoneNumber.Text, txtSmsCode.Text);
+            password = WhatsAppApi.Register.WhatsRegisterV2.RegisterCode(txtPhoneNumber.Text, txtSmsCode.Text, out sms);
             Save();
         }
 
